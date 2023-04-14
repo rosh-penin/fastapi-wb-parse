@@ -1,0 +1,20 @@
+version: '3.3'
+services:
+  db:
+    image: postgres:latest
+    restart: always
+    volumes:
+      - db:/var/lib/postgresql/data/
+    env_file: ./.env
+
+  fastapi:
+    build: ./app
+    restart: always
+    depends_on:
+      - db
+    env_file: ./.env
+    ports:
+      - "8000:8000"
+
+volumes:
+  db:
