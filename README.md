@@ -15,7 +15,7 @@ If installing full compose orchestra just simply run
 ```sh
 sudo docker-compose up -d
 ```
-It is possible to just separately build just api but you need to provide .env to container.
+It is possible to just separately build api but you need to provide .env to container.
 
 ### Author: Rosh_penin
 ### About: Pet project. Very basic WB parser that can store information about products.
