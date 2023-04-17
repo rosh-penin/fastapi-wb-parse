@@ -17,5 +17,13 @@ sudo docker-compose up -d
 ```
 It is possible to just separately build api but you need to provide .env to container.
 
+#### Usage
+There is 4 basic endpoints (PATH METHOD - DESCRIPTION):
+```sh
+/wares/ GET - list all products in db
+/wares/ POST - add new product with body like {"nm_id": "12345"}. Value must be a string
+/wares/{nm_id}/ GET - retrieve product with given {nm_id} parameter
+/wares/{nm_id}/ DELETE - delete product with given {nm_id} from db
+```
 ### Author: Rosh_penin
 ### About: Pet project. Very basic WB parser that can store information about products.
