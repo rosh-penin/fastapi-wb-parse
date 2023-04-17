@@ -39,7 +39,6 @@ def add_product(request: dict = Body(...)):
             colors=colors
         )
         session.add(product_db)
-
         return product_db.json()
 
 
@@ -47,7 +46,6 @@ def add_product(request: dict = Body(...)):
 def get_products():
     """Returns all objects in ObjectModel model."""
     with Session() as session:
-
         return [obj.json() for obj in session.scalars(
             select(ObjectModel).join(ObjectModel.colors)
         ).all()]
@@ -58,7 +56,6 @@ def get_product(nm_id: int):
     """Return selected product."""
     with Session() as session:
         obj = lazy_get(nm_id, session)
-
         return obj.json()
 
 
@@ -68,5 +65,4 @@ def delete_product(nm_id: int):
     with Session.begin() as session:
         obj = lazy_get(nm_id, session)
         session.delete(obj)
-
         return Response(status_code=204)

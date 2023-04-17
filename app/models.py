@@ -7,7 +7,6 @@ from engine import Base, engine
 class ColorModel(Base):
     """ORM model for wares colors. Seems useless."""
     __tablename__ = 'colors'
-
     id: Mapped[int] = mapped_column(primary_key=True)
     name: Mapped[str]
     objects: Mapped[list['ObjectModel']] = relationship(
@@ -18,7 +17,6 @@ class ColorModel(Base):
 class ObjectModel(Base):
     """ORM model for wares."""
     __tablename__ = 'things'
-
     nm_id: Mapped[int] = mapped_column(primary_key=True)
     name: Mapped[str]
     brand: Mapped[str]
