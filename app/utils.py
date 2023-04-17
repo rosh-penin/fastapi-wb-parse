@@ -7,10 +7,7 @@ from models import ObjectModel
 def get_response_from_id(id: str):
     """Get response from url by id."""
     response = requests.get(f'https://card.wb.ru/cards/detail?nm={id}')
-    print('IS LOGGING WORKING?')
-    print(response)
     if not response or response.status_code == 404:
-        print('PROBLEM ARISES BUT IGNORED.')
         raise HTTPException(404, 'There is no such product')
 
     return response.json()
